@@ -17,7 +17,7 @@ RUN echo "$LANG -- $LANGUAGE -- $LC_ALL" \
 
 ADD artemis-java-template /opt/artemis-java-template
 
-RUN mvn clean install test -f /opt/artemis-java-template/pom.xml
+RUN cd /opt/artemis-java-template && pwd && ls -la && mvn clean install test && mvn spotbugs:spotbugs checkstyle:checkstyle pmd:pmd
 
 RUN rm -rf /opt/artemis-java-template
 
