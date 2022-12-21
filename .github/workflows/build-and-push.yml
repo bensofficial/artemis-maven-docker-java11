@@ -38,12 +38,6 @@ jobs:
       - uses: actions/checkout@v2
 
       -
-        name: Docker Login
-        id: docker-login
-        run: |
-          docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-
-      -
         name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -72,7 +66,6 @@ jobs:
         with:
           context: .
           tags: |
-            ls1tum/artemis-maven-template:${{ steps.compute-tag.outputs.result }}
-            ghcr.io/ls1intum/artemis-maven-docker:${{ steps.compute-tag.outputs.result }}
+            ghcr.io/bensofficial/artemis-maven-docker-java11:${{ steps.compute-tag.outputs.result }}
           platforms: linux/amd64,linux/arm64/v8
           push: ${{ !startsWith(steps.compute-tag.outputs.result, 'pr-') }}

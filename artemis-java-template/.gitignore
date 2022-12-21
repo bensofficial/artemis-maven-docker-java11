@@ -1,3 +1,5 @@
+assignment/
+
 *.class
 .idea
 bin
@@ -82,9 +84,3 @@ nbdist/
 *.iws
 *.iml
 out
-
-
-#################
-# Gradle Wrapper
-.gradle
-!gradle/wrapper/gradle-wrapper.jar
